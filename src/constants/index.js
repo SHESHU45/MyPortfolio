@@ -52,10 +52,29 @@ export const navLinks = [
     title: "Work",
   },
   {
+    id: "projects",
+    title: "Projects",
+  },
+  {
+    id: "achievements",
+    title: "Achievements",
+  },
+  {
     id: "contact",
     title: "Contact",
   },
 ];
+
+export const profileLinks = {
+  resume: "/Talluri_Sheshu_Resume.pdf",
+  github: "https://github.com/SHESHU45",
+  linkedin: "https://www.linkedin.com/in/talluri-sheshu/",
+  leetcode: "https://leetcode.com/u/SheshuTalluri/",
+  codeforces: "https://codeforces.com/profile/Frvingw009",
+  codechef: "https://www.codechef.com/users/sheshu1607",
+  email: "sheshuchowdary134@gmail.com",
+  phone: "+91 9515807539",
+};
 
 const services = [
   {
@@ -195,38 +214,45 @@ const experiences = [
   },
 ];
 
-const testimonials = [
+const achievements = [
   {
-    testimonial:
-      "I believed it was unattainable to create a website as visually stunning as our projects, yet Sheshu shattered my expectations.",
-    name: "S Roopesh",
-    designation: "Web3 Lead",
-    company: "IIIT Lucknow",
-    image: "https://randomuser.me/api/portraits/men/1.jpg",
+    title: "Codeforces Expert",
+    highlight: "Max Rating: 1669",
+    description:
+      "Rated Expert in competitive programming on Codeforces (@Frvingw009).",
+    link: "https://codeforces.com/profile/Frvingw009",
+    icon: "chart",
   },
   {
-    testimonial:
-      "I have yet to encounter a web developer who genuinely prioritizes their clients' success as much as Sheshu does.",
-    name: "Kota Karthik",
-    designation: "Web dev lead",
-    company: "IIIT Lucknow",
-    image: "https://randomuser.me/api/portraits/men/2.jpg",
+    title: "LeetCode Knight",
+    highlight: "Max Rating: 1923",
+    description:
+      "Awarded Knight badge on LeetCode (Top ~5% globally, @SheshuTalluri).",
+    link: "https://leetcode.com/u/SheshuTalluri/",
+    icon: "shield",
   },
   {
-    testimonial:
-      "After Sheshu optimized our website, our traffic increased by 50%. We can't thank them enough!",
-    name: "Charan",
-    designation: "Mobile dev Lead",
-    company: "IIIT Lucknow",
-    image: "https://randomuser.me/api/portraits/men/5.jpg",
+    title: "CodeChef 4-Star",
+    highlight: "Max Rating: 1840",
+    description:
+      "Four-star competitive programming rating on CodeChef (@sheshu1607).",
+    link: "https://www.codechef.com/users/sheshu1607",
+    icon: "star",
+  },
+];
+
+const hackathonsAndRoles = [
+  {
+    event: "APACHE AIRFLOW & ARGO WORKFLOWS",
+    result: "Open-Source Contributor",
   },
   {
-    testimonial:
-      "After Sheshu optimized our website, our traffic increased by 50%. We can't thank them enough!",
-    name: "Saketha Ram",
-    designation: "Mobile dev Lead",
-    company: "IIIT Lucknow",
-    image: "https://randomuser.me/api/portraits/men/4.jpg",
+    event: "AFTERDARK (IIIT LUCKNOW)",
+    result: "Coordinator · Aug 2024 – Oct 2025",
+  },
+  {
+    event: "IIIT LUCKNOW (B.TECH CS)",
+    result: "CGPA: 8.05 · 2022 – 2026",
   },
 ];
 
@@ -364,6 +390,7 @@ export {
   technologies,
   skillCategories,
   experiences,
-  testimonials,
+  achievements,
+  hackathonsAndRoles,
   projects,
 };
