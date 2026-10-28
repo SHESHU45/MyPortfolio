@@ -47,12 +47,20 @@ const About = () => {
         variants={fadeIn("", "", 0.1, 1)}
         className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
       >
-        As a proficient web developer, I bring expertise in TypeScript and
-        JavaScript, coupled with hands-on experience in frameworks such as
-        React, Node.js, and Three.js. I am known for my quick learning abilities
-        and collaborative approach with clients to engineer efficient, scalable,
-        and user-centric solutions that address real-world challenges. Let's
-        team up and transform your concepts into reality!
+        I'm a Computer Science graduate from IIIT Lucknow with hands-on
+        experience engineering production backend systems across e-commerce,
+        high-frequency trading (HFT), and fintech at{" "}
+        <span className="text-white font-medium">Coupang</span>,{" "}
+        <span className="text-white font-medium">QiCAP.Ai</span>, and{" "}
+        <span className="text-white font-medium">Groww</span>. From building
+        secure PII data pipelines and Spring Boot/Spring Batch microservices on
+        Kubernetes to low-latency trading infrastructure, I specialize in
+        distributed systems, fault-tolerant architecture, and scalable backend
+        engineering. Alongside system design, I'm an{" "}
+        <span className="text-white font-medium">Expert on Codeforces (1669)</span>,{" "}
+        <span className="text-white font-medium">Knight on LeetCode (1923)</span>,
+        and{" "}
+        <span className="text-white font-medium">4★ on CodeChef (1840)</span>.
       </motion.p>
 
       <div className="mt-20 flex flex-wrap gap-10">

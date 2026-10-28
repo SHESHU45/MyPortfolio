@@ -14,12 +14,32 @@ import {
   mongodb,
   git,
   figma,
-  zidio,
+  coupang,
+  qicap,
+  groww,
   threejs,
-  StudyNotion,
-  chatterbox,
-  DiagnoseWizard,
-  galaxyVision,
+  docker,
+  cplusplus,
+  c,
+  java,
+  python,
+  go,
+  rust,
+  sql,
+  spring,
+  flask,
+  kubernetes,
+  githubactions,
+  mysql,
+  postgresql,
+  firebase,
+  junit,
+  store_platform,
+  incident_agent,
+  aichatx,
+  movieflex,
+  airflow,
+  argo,
 } from "../assets";
 
 export const navLinks = [
@@ -39,86 +59,138 @@ export const navLinks = [
 
 const services = [
   {
-    title: "Web Developer",
-    icon: web,
-  },
-  {
-    title: "Web3 Developer",
+    title: "Software & AI Engineer",
     icon: mobile,
   },
   {
-    title: "Backend Developer",
+    title: "Backend & Distributed Systems",
     icon: backend,
   },
   {
-    title: "Content Creator",
+    title: "Full-Stack Developer",
+    icon: web,
+  },
+  {
+    title: "Competitive Programmer",
     icon: creator,
   },
 ];
 
+// Rendered as 3D balls in the Tech section (order = display order).
 const technologies = [
+  // Languages
+  { name: "C++", icon: cplusplus },
+  { name: "Java", icon: java },
+  { name: "Python", icon: python },
+  { name: "Go", icon: go },
+  { name: "Rust", icon: rust },
+  { name: "JavaScript", icon: javascript },
+  { name: "TypeScript", icon: typescript },
+  { name: "SQL", icon: sql },
+  { name: "C", icon: c },
+  // Frameworks
+  { name: "Spring Boot / Spring Batch", icon: spring },
+  { name: "React JS", icon: reactjs },
+  { name: "Node JS", icon: nodejs },
+  { name: "Flask", icon: flask },
+  { name: "Redux Toolkit", icon: redux },
+  { name: "Tailwind CSS", icon: tailwind },
+  { name: "Three JS", icon: threejs },
+  // DevOps & Orchestration
+  { name: "Docker", icon: docker },
+  { name: "Kubernetes", icon: kubernetes },
+  { name: "CI/CD (GitHub Actions)", icon: githubactions },
+  { name: "git", icon: git },
+  // Databases
+  { name: "MySQL", icon: mysql },
+  { name: "PostgreSQL", icon: postgresql },
+  { name: "MongoDB", icon: mongodb },
+  { name: "Firebase", icon: firebase },
+  // Testing
+  { name: "JUnit", icon: junit },
+  // Web & Design
+  { name: "HTML 5", icon: html },
+  { name: "CSS 3", icon: css },
+  { name: "figma", icon: figma },
+];
+
+// Full skill list grouped by category (shown as text below the balls).
+const skillCategories = [
   {
-    name: "HTML 5",
-    icon: html,
+    title: "Languages",
+    skills: ["C++", "Java", "Python", "Go", "Rust", "JavaScript", "SQL", "C"],
   },
   {
-    name: "CSS 3",
-    icon: css,
+    title: "Frameworks",
+    skills: ["Spring Boot", "Spring Batch", "React.js", "Node.js", "Flask"],
   },
   {
-    name: "JavaScript",
-    icon: javascript,
+    title: "DevOps & Orchestration",
+    skills: ["Docker", "Kubernetes", "CI/CD"],
   },
   {
-    name: "TypeScript",
-    icon: typescript,
+    title: "Backend & Systems",
+    skills: [
+      "REST APIs",
+      "Distributed Systems",
+      "Scalable Systems",
+      "Fault Tolerance",
+      "Idempotency",
+    ],
   },
   {
-    name: "React JS",
-    icon: reactjs,
+    title: "Databases",
+    skills: ["MySQL", "PostgreSQL", "MongoDB", "Firebase"],
   },
   {
-    name: "Redux Toolkit",
-    icon: redux,
-  },
-  {
-    name: "Tailwind CSS",
-    icon: tailwind,
-  },
-  {
-    name: "Node JS",
-    icon: nodejs,
-  },
-  {
-    name: "MongoDB",
-    icon: mongodb,
-  },
-  {
-    name: "Three JS",
-    icon: threejs,
-  },
-  {
-    name: "git",
-    icon: git,
-  },
-  {
-    name: "figma",
-    icon: figma,
+    title: "Testing & Quality",
+    skills: [
+      "Unit Testing (JUnit)",
+      "Validation",
+      "Debugging",
+      "Production Monitoring",
+    ],
   },
 ];
 
 const experiences = [
   {
-    title: "Web Developer",
-    company_name: "Zidio",
-    icon: zidio,
-    iconBg: "#383E56",
-    date: "February 2024 - present",
+    title: "Software Development Engineer Intern",
+    company_name: "Coupang · Hyderabad, India",
+    icon: coupang,
+    iconBg: "#FFFFFF",
+    date: "June 2026 - September 2026",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Built a secure PII data pipeline across two microservices to protect customer shipping information — generating short-lived signed access tokens, retrieving and masking recipient names and addresses via an internal token service, and storing private keys in HashiCorp Vault with access controlled through a company security portal.",
+      "Replaced fragile direct HTTP calls with a standardized API Gateway SDK (Pylon) for invoice format fetching in the shipping label service.",
+      "Reduced production deployment time from 16 mins to under 5 mins by setting up emergency CI/CD pipelines across 5 services.",
+      "Tech Stack: Java, Spring Boot, CircleCI, Docker, Kafka, API Gateway (Pylon), Redis.",
+    ],
+  },
+  {
+    title: "Software Development Engineer Intern",
+    company_name: "QiCAP.Ai (HFT) · Bengaluru, India",
+    icon: qicap,
+    iconBg: "#FFFFFF",
+    date: "February 2026 - June 2026",
+    points: [
+      "Built a full-stack internal platform to auto-generate and remotely deploy exchange-specific XML configurations (CTCL adapters, Hellfire, HF Engine) for low-latency trading infrastructure on Linux servers, replacing manual TradeOps workflows with one-click config generation and Ansible-based deployment via SSH.",
+      "Implemented role-based access control with maker-checker approval workflows, Excel-to-DB client synchronization, config generation history with audit logging, and dynamic gateway adapter management enforcing throttling limits, terminal ID validation, and standardized credential paths.",
+      "Tech Stack: Python, FastAPI, React, TypeScript, PostgreSQL, Ansible, XML, Linux.",
+    ],
+  },
+  {
+    title: "Software Development Engineer Intern",
+    company_name: "Groww · Bengaluru, India",
+    icon: groww,
+    iconBg: "#1d1836",
+    date: "July 2025 - January 2026",
+    points: [
+      "Built and maintained Java Spring Boot microservices and Spring Batch pipelines on Kubernetes for large-scale financial workflows across trading, demat, and funds systems.",
+      "Wrote unit tests using JUnit and contributed to UAT and release testing, ensuring correctness and stability of backend services before production deployment.",
+      "Improved reliability of batch pipelines by implementing retries, failure isolation, and idempotent processing, reducing production failures and ensuring consistent execution.",
+      "Designed and validated DAG-based batch workflows using Kubernetes CronJobs, ensuring fault-tolerant and predictable job execution.",
+      "Tech Stack: Java, Spring Boot, Spring Batch, Kubernetes, JUnit.",
     ],
   },
 ];
@@ -160,89 +232,138 @@ const testimonials = [
 
 const projects = [
   {
-    name: "Chat Application ",
+    name: "Store Provisioning Platform",
     description:
-      "Chat application designed to facilitate seamless communication and interaction among users, offering a user-friendly platform for real-time messaging, file sharing, and group discussions.",
+      "Kubernetes-native multi-tenant platform that provisions isolated WooCommerce stores with a single click using Helm charts (Kind & k3s). Enforces namespace isolation, RBAC, NetworkPolicies, ResourceQuotas, idempotent reconciliation loops, and a SQLite-backed audit trail.",
     tags: [
       {
-        name: "react",
+        name: "kubernetes",
         color: "blue-text-gradient",
       },
       {
-        name: "mongodb",
+        name: "helm",
         color: "green-text-gradient",
       },
       {
-        name: "socket.io",
+        name: "react-nodejs",
         color: "pink-text-gradient",
       },
     ],
-    image: chatterbox,
-    source_code_link: "https://github.com/SHESHU45/chatterbox",
+    image: store_platform,
+    source_code_link: "https://github.com/SHESHU45/StoreProvisioningPlatform",
   },
   {
-    name: "DiagnoseWizard",
+    name: "AI Incident Agent",
     description:
-      "It is a website that takes the details of your medical reports and predicts the type of disease you have been diagnosed with. It uses React for the frontend and Flask for the backend.",
+      "End-to-end production incident investigation agent built on Cloudflare's Agents SDK. Orchestrates durable multi-step workflows with Llama 3.3 70B on Workers AI, queries diagnostic tools, recalls similar past incidents via Vectorize semantic search, and persists RCA reports in D1.",
     tags: [
       {
-        name: "react",
+        name: "cloudflare-agents",
         color: "blue-text-gradient",
       },
       {
-        name: "Python",
+        name: "llama-3.3",
         color: "green-text-gradient",
       },
       {
-        name: "Flask",
+        name: "vectorize-d1",
         color: "pink-text-gradient",
       },
     ],
-    image: DiagnoseWizard,
-    source_code_link: "https://github.com/SHESHU45/DiagnoseWizard",
+    image: incident_agent,
+    source_code_link: "https://github.com/SHESHU45/incident-agent",
   },
   {
-    name: "Galaxy Vision ",
+    name: "AIChatX",
     description:
-      "violence detection ML model to detect suspicious activities in real-time through CCTV or any camera, and send immediate alert to the respective authorities.",
+      "Full-stack, real-time AI chat and code execution platform powered by Gemini conversational AI, JWT authentication, and responsive WebSocket communication over TCP/IP. Includes a sandboxed compiler module that spins up isolated Node.js servers for live code execution in the browser.",
     tags: [
       {
-        name: "react",
+        name: "gemini-ai",
         color: "blue-text-gradient",
       },
       {
-        name: "Jupyter Notebook",
+        name: "nodejs-socket.io",
         color: "green-text-gradient",
       },
       {
-        name: "SCSS",
+        name: "react-mongodb",
         color: "pink-text-gradient",
       },
     ],
-    image: galaxyVision,
-    source_code_link: "https://github.com/SHESHU45/GalaxyVision",
+    image: aichatx,
+    source_code_link: "https://github.com/SHESHU45/AIChatX",
   },
   {
-    name: "Study-Notion ",
+    name: "MovieFlex",
     description:
-      "Learning platform designed to empower users to explore, and manage knowledge resources, offering a good solution for educational needs.",
+      "Hybrid movie recommendation engine combining content-based and collaborative filtering using BERT, Neural Collaborative Filtering (NCF), SVD, and TF-IDF. Integrates the TMDB API for metadata and scrapes IMDb user reviews to run real-time NLP sentiment analysis.",
     tags: [
       {
-        name: "react",
+        name: "bert-ncf-svd",
         color: "blue-text-gradient",
       },
       {
-        name: "tailwindcss",
+        name: "python-ml",
         color: "green-text-gradient",
       },
       {
-        name: "razorpay",
+        name: "nlp-sentiment",
         color: "pink-text-gradient",
       },
     ],
-    image: StudyNotion,
-    source_code_link: "https://github.com/SHESHU45/Study-Notion",
+    image: movieflex,
+    source_code_link: "https://github.com/SHESHU45/MovieFlex",
+  },
+  {
+    name: "Apache Airflow (Open Source)",
+    description:
+      "Open-source contributor to Apache Airflow, the industry-standard platform for programmatically authoring, scheduling, and monitoring distributed DAG workflows and data pipelines in Python.",
+    tags: [
+      {
+        name: "open-source",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "python",
+        color: "green-text-gradient",
+      },
+      {
+        name: "dag-orchestration",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: airflow,
+    source_code_link: "https://github.com/SHESHU45/airflow",
+  },
+  {
+    name: "Argo Workflows (Open Source)",
+    description:
+      "Open-source contributor to Argo Workflows, the CNCF container-native workflow engine for orchestrating parallel jobs and DAG pipelines on Kubernetes using Go controllers and custom resources.",
+    tags: [
+      {
+        name: "open-source",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "golang",
+        color: "green-text-gradient",
+      },
+      {
+        name: "kubernetes",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: argo,
+    source_code_link: "https://github.com/SHESHU45/argo-workflows",
   },
 ];
 
-export { services, technologies, experiences, testimonials, projects };
+export {
+  services,
+  technologies,
+  skillCategories,
+  experiences,
+  testimonials,
+  projects,
+};

@@ -80,11 +80,10 @@ const Works = () => {
           variants={fadeIn("", "", 0.1, 1)}
           className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]"
         >
-          Below are a series of projects that exemplify my skills and expertise
-          through tangible demonstrations of my work. Each project is succinctly
-          described and includes links to both code repositories and live demos,
-          showcasing my proficiency in solving intricate problems, adeptness
-          with diverse technologies, and effective project management abilities.
+          Here are some of the systems, AI agents, and open-source projects I've
+          built and contributed to — ranging from Kubernetes-native platforms
+          and durable LLM workflows to distributed workflow engines. Each card
+          links directly to the GitHub repository.
         </motion.p>
       </div>
 
