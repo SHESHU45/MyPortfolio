@@ -4,17 +4,15 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { Decal, Float, View, useTexture } from "@react-three/drei";
 
 /*
- * All tech balls are rendered into ONE shared WebGL canvas (via drei <View>).
- * Browsers cap live WebGL contexts (~16 in Chrome), so giving each ball its own
- * <Canvas> breaks once there are many skills. Each ball is "tracked" from a
- * plain DOM slot; the fixed, click-through canvas draws the ball at that spot.
+ * On desktop: all tech balls are rendered into ONE shared WebGL canvas (via drei <View>).
+ * On mobile (< 768px): we render sleek 3D-styled static icon badges so mobile GPUs
+ * don't hit WebGL context/shader limits and scrolling stays 60fps.
  */
 
 const Ball = ({ imgUrl, rotation }) => {
   const [decal] = useTexture([imgUrl]);
   const mesh = useRef();
 
-  // Apply drag rotation (smoothly) set by the DOM slot's pointer handlers.
   useFrame(() => {
     if (!mesh.current) return;
     mesh.current.rotation.x += (rotation.x - mesh.current.rotation.x) * 0.15;
@@ -45,8 +43,6 @@ const Ball = ({ imgUrl, rotation }) => {
   );
 };
 
-// Views draw with scissor regions only; wipe the whole canvas first each frame
-// so balls that move (scroll) don't leave trails behind.
 const ClearCanvas = () => {
   useFrame(({ gl }) => {
     gl.setScissorTest(false);
@@ -55,7 +51,6 @@ const ClearCanvas = () => {
   return null;
 };
 
-// Only mount the WebGL canvas while the section is (nearly) on screen.
 const useInView = (ref, rootMargin = "200px") => {
   const [inView, setInView] = useState(false);
   useEffect(() => {
@@ -70,7 +65,24 @@ const useInView = (ref, rootMargin = "200px") => {
   return inView;
 };
 
-// Drag-to-rotate handlers for a DOM slot (replaces per-canvas OrbitControls).
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== "undefined"
+      ? window.matchMedia("(max-width: 768px)").matches
+      : false
+  );
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    setIsMobile(mediaQuery.matches);
+    const handler = (e) => setIsMobile(e.matches);
+    mediaQuery.addEventListener("change", handler);
+    return () => mediaQuery.removeEventListener("change", handler);
+  }, []);
+
+  return isMobile;
+};
+
 const dragHandlers = (rotation) => {
   let last = null;
   return {
@@ -91,20 +103,54 @@ const dragHandlers = (rotation) => {
 
 const BallGrid = ({ items }) => {
   const containerRef = useRef();
+  const isMobile = useIsMobile();
   const inView = useInView(containerRef);
 
   const slots = useMemo(
     () =>
       items.map((item) => {
         const rotation = { x: 0, y: 0 };
-        return { ...item, rotation, track: createRef(), handlers: dragHandlers(rotation) };
+        return {
+          ...item,
+          rotation,
+          track: createRef(),
+          handlers: dragHandlers(rotation),
+        };
       }),
     [items]
   );
 
+  if (isMobile) {
+    return (
+      <div className='flex flex-row flex-wrap justify-center gap-5 sm:gap-8'>
+        {items.map((item) => (
+          <div
+            key={item.name}
+            title={item.name}
+            className='w-20 h-20 rounded-full flex items-center justify-center p-4 shadow-card border border-white/20'
+            style={{
+              background:
+                "radial-gradient(circle at 30% 30%, #ffffff, #e6dfd3 65%, #b8b0a4 100%)",
+            }}
+          >
+            <img
+              src={item.icon}
+              alt={item.name}
+              loading='lazy'
+              className='w-11 h-11 object-contain drop-shadow-sm'
+            />
+          </div>
+        ))}
+      </div>
+    );
+  }
+
   return (
     <>
-      <div ref={containerRef} className='flex flex-row flex-wrap justify-center gap-10'>
+      <div
+        ref={containerRef}
+        className='flex flex-row flex-wrap justify-center gap-10'
+      >
         {slots.map((slot) => (
           <div
             key={slot.name}
@@ -127,7 +173,7 @@ const BallGrid = ({ items }) => {
               width: "100vw",
               height: "100vh",
               pointerEvents: "none",
-              zIndex: 10, // below the fixed navbar (z-20)
+              zIndex: 10,
             }}
           >
             <ClearCanvas />
